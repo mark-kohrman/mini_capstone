@@ -2,7 +2,8 @@ Rails.application.routes.draw do
  
  
   namespace :api do
-    get "/skistore" => "products#new_product"
-    get "/skistore/:ski_brand/:ski_price/:ski_color" => "products#new_product"
+    get "/products" => "products#index"
+    post "/products" => "products#create"
+    get "/products/:id" => "products#show"
   end
 end

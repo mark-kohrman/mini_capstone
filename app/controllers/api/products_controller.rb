@@ -1,10 +1,15 @@
 class Api::ProductsController < ApplicationController
 
-  def new_product
-    @brand = params["ski_brand"]
-    @price = params["ski_price"].to_i
-    @color = params["ski_color"]
-
-    render 'skistore.json.jb'
+  def index
+    render 'index.json.jb'
   end
+
+  def create
+    render 'create.json.jb'
+  end
+
+  def show
+    render 'show.json.jb'
+  end
+
 end
