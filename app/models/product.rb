@@ -1,4 +1,15 @@
 class Product < ApplicationRecord
+  
+  validates :name, uniqueness: true
+  
+  validates :price, :numericality => { :greater_than_or_equal_to => 0 }
+
+  validates :price, numericality: true
+
+  validates :description, length: { minimum: 2 }
+  validates :description, length: { maximum: 500 }
+
+
 
 
   def is_discounted?
@@ -17,4 +28,5 @@ class Product < ApplicationRecord
     total = price + tax
   end
 
+  
 end
