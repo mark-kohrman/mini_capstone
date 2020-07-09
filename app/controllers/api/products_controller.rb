@@ -32,7 +32,11 @@ class Api::ProductsController < ApplicationController
       image_url: params[:the_image_url],
       description: params[:the_description]
     )
-    render 'show.json.jb'
+    if @product.save
+      render 'show.json.jb'
+    else
+      render 'errors.json.jb'
+    end
   end
 
 end
