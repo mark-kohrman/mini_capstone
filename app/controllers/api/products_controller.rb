@@ -2,6 +2,11 @@ class Api::ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    if params[:discount] == true
+      @products = Product.where('price < ?', 300)
+    else
+      @products = Product.all
+    end
     render 'index.json.jb'
   end
 
@@ -37,6 +42,12 @@ class Api::ProductsController < ApplicationController
     else
       render 'errors.json.jb'
     end
+  end
+
+  def destroy
+    @product = Product.find_by(id: params[:id])
+    @product.destroy
+    render json: {message: "The product has been successfully deleted."}
   end
 
 end
