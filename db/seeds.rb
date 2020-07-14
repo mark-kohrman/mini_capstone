@@ -9,3 +9,7 @@ Product.create!([
   {name: "Burton", price: "888.0", image_url: "skis.com", description: "orange and red"},
   {name: "Snowbird", price: "877.0", image_url: "snow.com", description: "real cool skis"}
 ])
+
+products = Product.where(supplier_id = nil)
+  supplier_id = Supplier.all.sample.id
+  

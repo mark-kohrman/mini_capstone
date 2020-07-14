@@ -1,6 +1,9 @@
 class Product < ApplicationRecord
+
+  has_many :images
+  belongs_to :supplier
   
-  validates :name, uniqueness: true
+  # validates :name, uniqueness: true
   
   validates :price, :numericality => { :greater_than_or_equal_to => 0 }
 
@@ -27,6 +30,9 @@ class Product < ApplicationRecord
   def total
     total = price + tax
   end
+
+  
+    
 
   
 end
